@@ -8,10 +8,10 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
-      {/* Navbar */}
+      {/* NAVBAR */}
       <Navbar />
 
-      {/* Main Content */}
+      {/* MAIN CONTENT */}
       <main className="bg-white">
 
         {/* HERO SECTION */}
@@ -38,7 +38,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
 
             {/* Package 1 */}
-            <div className="bg-white shadow-lg rounded-xl overflow-hidden">
+            <div className="bg-white shadow-lg rounded-xl overflow-hidden flex flex-col">
               <Image
                 src="/safari1.jpg"
                 alt="Maasai Mara Safari"
@@ -46,16 +46,24 @@ export default function Home() {
                 height={300}
                 className="w-full h-64 object-cover"
               />
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Maasai Mara Safari</h3>
-                <p className="text-gray-600">
-                  3 Days adventure in Kenya’s most famous wildlife reserve.
-                </p>
+              <div className="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Maasai Mara Safari</h3>
+                  <p className="text-gray-600 mb-4">
+                    3 Days adventure in Kenya’s most famous wildlife reserve.
+                  </p>
+                </div>
+                <div className="mt-auto">
+                  <p className="font-bold text-green-700 mb-2">KSh 45,000</p>
+                  <button className="w-full bg-blue-700 text-white p-2 rounded hover:bg-blue-800 transition">
+                    View Details
+                  </button>
+                </div>
               </div>
             </div>
 
             {/* Package 2 */}
-            <div className="bg-white shadow-lg rounded-xl overflow-hidden">
+            <div className="bg-white shadow-lg rounded-xl overflow-hidden flex flex-col">
               <Image
                 src="/safari2.jpg"
                 alt="Amboseli Safari"
@@ -63,16 +71,24 @@ export default function Home() {
                 height={300}
                 className="w-full h-64 object-cover"
               />
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Amboseli Safari</h3>
-                <p className="text-gray-600">
-                  Stunning elephant views with Mount Kilimanjaro backdrop.
-                </p>
+              <div className="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Amboseli Safari</h3>
+                  <p className="text-gray-600 mb-4">
+                    Stunning elephant views with Mount Kilimanjaro backdrop.
+                  </p>
+                </div>
+                <div className="mt-auto">
+                  <p className="font-bold text-green-700 mb-2">KSh 40,000</p>
+                  <button className="w-full bg-blue-700 text-white p-2 rounded hover:bg-blue-800 transition">
+                    View Details
+                  </button>
+                </div>
               </div>
             </div>
 
             {/* Package 3 */}
-            <div className="bg-white shadow-lg rounded-xl overflow-hidden">
+            <div className="bg-white shadow-lg rounded-xl overflow-hidden flex flex-col">
               <Image
                 src="/safari3.jpg"
                 alt="Lake Nakuru Safari"
@@ -80,18 +96,26 @@ export default function Home() {
                 height={300}
                 className="w-full h-64 object-cover"
               />
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Lake Nakuru Safari</h3>
-                <p className="text-gray-600">
-                  Experience flamingos and rhinos in this scenic park.
-                </p>
+              <div className="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Lake Nakuru Safari</h3>
+                  <p className="text-gray-600 mb-4">
+                    Experience flamingos and rhinos in this scenic park.
+                  </p>
+                </div>
+                <div className="mt-auto">
+                  <p className="font-bold text-green-700 mb-2">KSh 42,000</p>
+                  <button className="w-full bg-blue-700 text-white p-2 rounded hover:bg-blue-800 transition">
+                    View Details
+                  </button>
+                </div>
               </div>
             </div>
 
           </div>
         </section>
 
-        {/* BOOKING SECTION */}
+        {/* BOOKING FORM SECTION */}
         <section className="py-16 px-6 bg-gray-100">
           <h2 className="text-3xl font-bold text-center mb-8">
             Book Your Safari Today
