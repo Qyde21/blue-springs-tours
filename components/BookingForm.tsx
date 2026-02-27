@@ -16,21 +16,20 @@ export default function BookingForm() {
   return (
     <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4 text-left" id="booking">
       <input
-        type="text"
-        placeholder="Full Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        className="w-full p-2 border rounded"
-        required
-      />
-      <input
-        type="text"
-        placeholder="Phone Number"
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
-        className="w-full p-2 border rounded"
-        required
-      />
+  type="text"
+  placeholder="Full Name"
+  value={name}
+  onChange={(e) => setName(e.target.value)}
+  className="w-full p-3 border border-gray-300 rounded text-gray-900 placeholder-gray-500"
+/>
+
+<input
+  type="text"
+  placeholder="Phone Number"
+  value={phone}
+  onChange={(e) => setPhone(e.target.value)}
+  className="w-full p-3 border border-gray-300 rounded text-gray-900 placeholder-gray-500"
+/>
       <button type="submit" className="w-full bg-blue-700 text-white p-2 rounded">
         Submit Booking
       </button>
