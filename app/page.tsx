@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-// Floating WhatsApp Button with slide-in animation
+// Floating WhatsApp Button
 function WhatsAppButton() {
   const [visible, setVisible] = useState(false);
 
@@ -36,6 +36,10 @@ export default function Home() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true });
+  }, []);
+
   const sliderSettings = {
     dots: true,
     infinite: true,
@@ -48,9 +52,13 @@ export default function Home() {
     ],
   };
 
-  useEffect(() => {
-    AOS.init({ duration: 800, once: true });
-  }, []);
+  // Smooth scroll function
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <>
@@ -72,18 +80,18 @@ export default function Home() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              "name": "Blue Springs Tours",
-              "image": "https://yourdomain.com/hero.jpg",
-              "telephone": "+254114525941",
-              "address": {
+              name: "Blue Springs Tours",
+              image: "https://yourdomain.com/hero.jpg",
+              telephone: "+254114525941",
+              address: {
                 "@type": "PostalAddress",
-                "streetAddress": "Your Street",
-                "addressLocality": "Nairobi",
-                "addressRegion": "Kenya",
-                "postalCode": "00100",
-                "addressCountry": "KE",
+                streetAddress: "Your Street",
+                addressLocality: "Nairobi",
+                addressRegion: "Kenya",
+                postalCode: "00100",
+                addressCountry: "KE",
               },
-              "url": "https://yourdomain.com",
+              url: "https://yourdomain.com",
             }),
           }}
         />
@@ -91,7 +99,7 @@ export default function Home() {
 
       {/* HERO SECTION */}
       <section
-        className="relative h-[80vh] w-full flex items-center justify-center bg-gray-800"
+        className="relative h-[80vh] w-full flex flex-col items-center justify-center bg-gray-800 text-center"
         data-aos="fade-up"
       >
         <img
@@ -99,15 +107,21 @@ export default function Home() {
           alt="Blue Springs Safari"
           className="absolute inset-0 w-full h-full object-cover brightness-75"
         />
-        <div className="relative z-10 text-center text-gray-100">
+        <div className="relative z-10 text-gray-100">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">Explore the Wild</h1>
-          <p className="text-lg md:text-2xl">
+          <p className="text-lg md:text-2xl mb-6">
             Luxury & Mid-Market Safari Experiences
           </p>
+          <button
+            onClick={() => scrollToSection("booking")}
+            className="bg-yellow-500 text-white px-6 py-3 rounded-lg hover:bg-yellow-600 transition"
+          >
+            Book Your Safari Today
+          </button>
         </div>
       </section>
 
-      {/* SAFARI PACKAGES SECTION */}
+      {/* SAFARI PACKAGES */}
       <section className="py-16 px-6 bg-white" data-aos="fade-up">
         <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
           Our Safari Packages
@@ -117,7 +131,11 @@ export default function Home() {
           {[1, 2, 3].map((pkg) => (
             <div key={pkg} className="p-4" data-aos="zoom-in">
               <div className="bg-gray-100 p-6 rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1 duration-300 relative">
-                <img src={`/safari${pkg}.jpg`} alt={`Safari ${pkg}`} className="rounded mb-4" />
+                <img
+                  src={`/safari${pkg}.jpg`}
+                  alt={`Safari ${pkg}`}
+                  className="rounded mb-4"
+                />
                 <h3 className="font-bold text-lg mb-2 text-gray-900">
                   {pkg === 1
                     ? "Maasai Mara Classic"
@@ -143,7 +161,10 @@ export default function Home() {
                 <p className="text-gray-800 font-bold mb-4">
                   {pkg === 1 ? "$600" : pkg === 2 ? "$450" : "$500"} per person
                 </p>
-                <button className="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 transition">
+                <button
+                  onClick={() => scrollToSection("booking")}
+                  className="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 transition"
+                >
                   View Details
                 </button>
               </div>
@@ -218,7 +239,7 @@ export default function Home() {
       </section>
 
       {/* BOOKING FORM */}
-      <section className="py-16 px-6 bg-gray-50" data-aos="fade-up">
+      <section id="booking" className="py-16 px-6 bg-gray-50" data-aos="fade-up">
         <h2 className="text-3xl font-bold text-center mb-8 text-gray-900">
           Book Your Safari Today
         </h2>
